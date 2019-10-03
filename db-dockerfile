@@ -1,4 +1,6 @@
 FROM mysql:latest
 
+EXPOSE 3306
+
 COPY ./sql-scripts/ddl/ /docker-entrypoint-initdb.d/
 COPY ./sql-scripts/dml/ /docker-entrypoint-initdb.d/
