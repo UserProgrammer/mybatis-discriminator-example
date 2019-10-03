@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<configuration>
+  <properties>
+    <property name="filepath">~/example_logs</property>
+  </properties>
+
+  <appenders>
+    <console name="console" target="SYSTEM_OUT">
+      <patternlayout pattern="[%-5level] %d{yyyy-mm-dd hh:mm:ss.sss} [%t] %c{1} - %msg%n" />
+    </console>
+  </appenders>
+
+  <loggers>
+    <root level="info">
+      <appenderref ref="console" />
+    </root>
+  </loggers>
+</configuration>

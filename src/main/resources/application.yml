@@ -1,0 +1,9 @@
+server:
+  port: 80
+
+database:
+  host: ${DATABASE_HOST}
+  port: ${DATABASE_PORT}
+  instance: ${DATABASE_INSTANCE}
+  username: ${DATABASE_USERNAME}
+  password: ${DATABASE_PASSWORD}

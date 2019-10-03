@@ -1,0 +1,12 @@
+FROM openjdk:8-alpine
+
+ARG APP_NAME
+ARG APP_VERSION
+
+EXPOSE 80/tcp
+
+RUN apk add --no-cache bash
+
+COPY ./wait-for-it.sh /wait-for-it.sh
+COPY ./app-entrypoint.sh /app-entrypoint.sh
+COPY target/${APP_NAME}-${APP_VERSION}.jar /app/app.jar
