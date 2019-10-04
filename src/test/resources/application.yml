@@ -1,0 +1,10 @@
+server:
+  port: 80
+
+database:
+  host: localhost
+  port: 3036
+  instance: example_db_instance
+  username: root
+  password: passkey
+
