@@ -34,4 +34,9 @@
     <property name="mapperInterface" value="com.example.dao.IVehicleDao" />
     <property name="sqlSessionFactory" ref="sqlSessionFactory" />
   </bean>
+
+  <bean id="carDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
+    <property name="mapperInterface" value="com.example.dao.ICarDao" />
+    <property name="sqlSessionFactory" ref="sqlSessionFactory" />
+  </bean>
 </beans>

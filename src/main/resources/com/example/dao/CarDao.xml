@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.dao.ICarDao">
+
+  <resultMap id="simpleVehicleResultMap" type="com.example.entity.Vehicle">
+    <id property="id" column="vehicle_id" />
+    <result property="vin" column="vehicle_vin"/>
+    <result property="year" column="vehicle_year"/>
+    <result property="make" column="vehicle_make"/>
+    <result property="model" column="vehicle_model"/>
+    <result property="color" column="vehicle_color"/>
+    <result property="vehicleType" column="vehicle_type" />
+  </resultMap>
+
+  <resultMap id="carResultMap" type="com.example.entity.Car" extends="simpleVehicleResultMap">
+    <result property="doorCount" column="car_door_count"/>
+  </resultMap>
+
+  <resultMap id="carOwnershipResultMap" type="com.example.entity.CarOwnership">
+    <association property="car" resultMap="carResultMap" />
+    <association property="user" resultMap="com.example.dao.IUserDao.userResultMap" />
+  </resultMap>
+
+  <select id="getCarOwnership" resultMap="carOwnershipResultMap">
+    select vehicle.id as vehicle_id,
+           vehicle.vin as vehicle_vin,
+           vehicle.year as vehicle_year,
+           vehicle.make as vehicle_make,
+           vehicle.model as vehicle_model,
+           vehicle.color as vehicle_color,
+           vehicle.type as vehicle_type,
+           car.door_count as car_door_count,
+           user.id as id,
+           user.first_name as first_name,
+           user.last_name as last_name
+    from vehicle
+      join car on (vehicle.id = car.id)
+      join user on (vehicle.user_id = user.id)
+    where vehicle.type = 'car'
+  </select>
+</mapper>
