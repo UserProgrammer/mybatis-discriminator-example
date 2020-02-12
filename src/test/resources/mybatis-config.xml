@@ -4,6 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
    <mappers>
+      <mapper resource="com/example/dao/CarDao.xml" />
       <mapper resource="com/example/dao/UserDao.xml"/>
       <mapper resource="com/example/dao/VehicleDao.xml"/>
    </mappers>

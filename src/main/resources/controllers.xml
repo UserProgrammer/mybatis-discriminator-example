@@ -16,6 +16,10 @@
   </bean>
 
   <!-- Handlers -->
+  <bean id="carHandler" class="com.example.handler.CarHandler">
+    <property name="carDao" ref="carDao" />
+  </bean>
+
   <bean id="userHandler" class="com.example.handler.UserHandler">
     <property name="userDao" ref="userDao" />
   </bean>

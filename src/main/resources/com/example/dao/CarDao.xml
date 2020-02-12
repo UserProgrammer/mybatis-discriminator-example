@@ -36,8 +36,7 @@
            user.first_name as first_name,
            user.last_name as last_name
     from vehicle
-      join car on (vehicle.id = car.id)
       join user on (vehicle.user_id = user.id)
-    where vehicle.type = 'car'
+      left join car on (vehicle.id = car.id)
   </select>
 </mapper>
