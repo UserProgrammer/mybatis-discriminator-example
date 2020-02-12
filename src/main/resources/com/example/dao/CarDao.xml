@@ -12,6 +12,9 @@
     <result property="model" column="vehicle_model"/>
     <result property="color" column="vehicle_color"/>
     <result property="vehicleType" column="vehicle_type" />
+    <collection property="bloobIds" ofType="java.lang.Long" javaType="java.util.Set">
+      <result column="bloob_id" />
+    </collection>
   </resultMap>
 
   <resultMap id="carResultMap" type="com.example.entity.Car" extends="simpleVehicleResultMap">
@@ -34,9 +37,12 @@
            car.door_count as car_door_count,
            user.id as id,
            user.first_name as first_name,
-           user.last_name as last_name
+           user.last_name as last_name,
+           bloob.id as bloob_id
     from vehicle
       join user on (vehicle.user_id = user.id)
       left join car on (vehicle.id = car.id)
+      left join bloob on (vehicle.id = bloob.vehicle_id)
+    where vehicle.type = 'car'
   </select>
 </mapper>
