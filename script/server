@@ -1,7 +1,0 @@
-#!/bin/bash
-
-script/build
-
-# I use the sudo command here because in Ubuntu, my work environment at home,
-# the docker commandline tool requires super user privileges to run.
-sudo docker-compose up

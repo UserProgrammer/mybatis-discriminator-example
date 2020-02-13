@@ -17,13 +17,19 @@
     </collection>
   </resultMap>
 
+  <resultMap id="userResultMap" type="com.example.entity.User">
+    <result property="id" column="id" />
+    <result property="firstName" column="first_name" />
+    <result property="lastName" column="last_name" />
+  </resultMap>
+
   <resultMap id="carResultMap" type="com.example.entity.Car" extends="vehicleResultMap">
     <result property="doorCount" column="car_door_count"/>
   </resultMap>
 
   <resultMap id="carOwnershipResultMap" type="com.example.entity.CarOwnership">
     <association property="car" resultMap="carResultMap" />
-    <association property="user" resultMap="com.example.dao.IUserDao.userResultMap" />
+    <association property="user" resultMap="userResultMap" />
   </resultMap>
 
   <select id="getCarOwnership" resultMap="carOwnershipResultMap">

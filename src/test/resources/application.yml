@@ -2,9 +2,7 @@ server:
   port: 80
 
 database:
-  host: localhost
-  port: 3036
-  instance: example_db_instance
+  url: jdbc:mysql://localhost:3036/exampledb?serverTimezone=UTC&useSSL=false&allowPublicKeyRetrieval=true
   username: root
-  password: passkey
+  password: password
 

@@ -1,5 +1,7 @@
 package com.example.entity;
 
+import org.springframework.stereotype.Component;
+
 public class Car extends Vehicle {
   private int doorCount;
 

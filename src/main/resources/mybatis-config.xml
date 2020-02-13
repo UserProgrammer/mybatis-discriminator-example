@@ -5,7 +5,5 @@
 <configuration>
    <mappers>
       <mapper resource="com/example/dao/CarDao.xml" />
-      <mapper resource="com/example/dao/UserDao.xml"/>
-      <mapper resource="com/example/dao/VehicleDao.xml"/>
    </mappers>
 </configuration>

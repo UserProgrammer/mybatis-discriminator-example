@@ -1,7 +1,14 @@
 #!/bin/bash
 
+docker-compose build db
+docker-compose up -d db
+
+echo "Waiting for database to be ready for connections..."
+while ! mysqladmin ping -h localhost -P 3036 --protocol=tcp -u root -pglapidb --silent; do
+  sleep 1
+done
+
 mvn clean package
 
-# I use the sudo command here because in Ubuntu, my work environment at home,
-# the docker commandline tool requires super user privileges to run.
-sudo docker-compose build
+echo "Killing database container..."
+docker container rm -f example_db

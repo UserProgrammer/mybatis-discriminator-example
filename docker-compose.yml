@@ -24,6 +24,7 @@ services:
       context: .
       dockerfile: db-dockerfile
     image: example_db
+    container_name: example_db
     ports:
       - 3036:3306
     environment:
