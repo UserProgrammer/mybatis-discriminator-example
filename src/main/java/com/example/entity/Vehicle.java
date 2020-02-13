@@ -10,7 +10,7 @@ public class Vehicle {
   private String model;
   private String color;
   private String vehicleType;
-  private Set<Long> bloobIds;
+  private Set<Long> serviceRecordIds;
 
   public Long getId() {
     return id;
@@ -68,11 +68,11 @@ public class Vehicle {
     this.vehicleType = vehicleType;
   }
 
-  public Set<Long> getBloobIds() {
-    return bloobIds;
+  public Set<Long> getServiceRecordIds() {
+    return serviceRecordIds;
   }
 
-  public void setBloobIds(Set<Long> bloobIds) {
-    this.bloobIds = bloobIds;
+  public void setServiceRecordIds(Set<Long> serviceRecordIds) {
+    this.serviceRecordIds = serviceRecordIds;
   }
 }

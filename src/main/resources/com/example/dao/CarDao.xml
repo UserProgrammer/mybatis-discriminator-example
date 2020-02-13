@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.dao.ICarDao">
 
-  <resultMap id="simpleVehicleResultMap" type="com.example.entity.Vehicle">
+  <resultMap id="vehicleResultMap" type="com.example.entity.Vehicle">
     <id property="id" column="vehicle_id" />
     <result property="vin" column="vehicle_vin"/>
     <result property="year" column="vehicle_year"/>
@@ -12,12 +12,12 @@
     <result property="model" column="vehicle_model"/>
     <result property="color" column="vehicle_color"/>
     <result property="vehicleType" column="vehicle_type" />
-    <collection property="bloobIds" ofType="java.lang.Long" javaType="java.util.Set">
-      <result column="bloob_id" />
+    <collection property="serviceRecordIds" ofType="java.lang.Long" javaType="java.util.Set">
+      <result column="service_record_id" />
     </collection>
   </resultMap>
 
-  <resultMap id="carResultMap" type="com.example.entity.Car" extends="simpleVehicleResultMap">
+  <resultMap id="carResultMap" type="com.example.entity.Car" extends="vehicleResultMap">
     <result property="doorCount" column="car_door_count"/>
   </resultMap>
 
@@ -38,11 +38,11 @@
            user.id as id,
            user.first_name as first_name,
            user.last_name as last_name,
-           bloob.id as bloob_id
+           service_record.id as service_record_id
     from vehicle
       join user on (vehicle.user_id = user.id)
       left join car on (vehicle.id = car.id)
-      left join bloob on (vehicle.id = bloob.vehicle_id)
+      left join service_record on (vehicle.id = service_record.vehicle_id)
     where vehicle.type = 'car'
   </select>
 </mapper>
